@@ -9,15 +9,11 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 12  
-    commands:
-      # - echo Installing Mocha...
-      # - npm install -g mocha (test)
+      nodejs: 18 
   pre_build:
     commands:
       - echo  Installing   source NPM dependencies...
       - npm install
-      # - npm install  unit.js
       - echo Setting up docker
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
@@ -28,10 +24,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      # - mocha test.js
+
   post_build:
     commands:
-      - docker image build -t $IMAGE_NAME .
+      - docker image build -t $IMAGE_NAME:latest .
       - docker image tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME:latest
       - echo image name =  $IMAGE_NAME:latest
       - echo image url = $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME:latest
