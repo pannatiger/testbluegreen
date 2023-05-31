@@ -1,0 +1,78 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:720609190984:task-definition/BGT:3",
+    "containerDefinitions": [
+        {
+            "name": "BG",
+            "image": "720609190984.dkr.ecr.ap-southeast-2.amazonaws.com/test-repo:latest",
+            "cpu": 0,
+            "links": [],
+            "portMappings": [
+                {
+                    "name": "bg-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "dockerSecurityOptions": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "awslogs-ecs",
+                    "awslogs-region": "ap-southeast-2",
+                    "awslogs-stream-prefix": "BGS"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "BGT",
+    "executionRoleArn": "arn:aws:iam::720609190984:role/BGRole",
+    "networkMode": "awsvpc",
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "1024",
+    "registeredAt": "2023-05-30T13:33:53.137Z",
+    "registeredBy": "arn:aws:sts::720609190984:assumed-role/AWSReservedSSO_Administrator_456f032d519cdfd4/gaurav.gupta@firstblox.com",
+    "tags": []
+}
