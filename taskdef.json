@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "BG",
-            "image": "720609190984.dkr.ecr.ap-southeast-2.amazonaws.com/test-repo:latest",
+            "image": "<IMAGE1_NAME>",
             "cpu": 0,
             "links": [],
             "portMappings": [
@@ -73,6 +73,5 @@
     "cpu": "256",
     "memory": "1024",
     "registeredAt": "2023-05-30T13:33:53.137Z",
-    "registeredBy": "arn:aws:sts::720609190984:assumed-role/AWSReservedSSO_Administrator_456f032d519cdfd4/gaurav.gupta@firstblox.com",
-    "tags": []
+    "registeredBy": "arn:aws:sts::720609190984:assumed-role/AWSReservedSSO_Administrator_456f032d519cdfd4/gaurav.gupta@firstblox.com"
 }
